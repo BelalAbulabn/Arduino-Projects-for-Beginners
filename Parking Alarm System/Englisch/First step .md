@@ -87,7 +87,7 @@ void loop() {
    - **Positive (+)** pin of the buzzer connects to **Digital Pin 4** on the Arduino.
    - **Negative (-)** pin connects to **GND** on the Arduino.
 
-![LED and Buzzer Circuit](img6.png)  
+![LED and Buzzer Circuit](img6.PNG)  
 *Buzzer added to the circuit, connected to Arduino Pin 4*
 
 #### Step 2: Update the Code to Include the Buzzer
