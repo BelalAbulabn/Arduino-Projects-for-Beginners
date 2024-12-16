@@ -88,7 +88,7 @@ void loop() {
    - **Positive (+)**-Klemme des Summers an **Digital Pin 4** des Arduino anschließen.
    - **Negative (-)**-Klemme an **GND** des Arduino anschließen.
 
-![LED- und Summer-Schaltung](img6.png)  
+![LED- und Summer-Schaltung](img6.PNG)  
 *Summer zur Schaltung hinzufügen, verbunden mit Arduino-Pin 4*
 
 #### Schritt 2: Code um den Summer erweitern
