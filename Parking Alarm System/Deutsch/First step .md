@@ -1,52 +1,53 @@
-# Building a Parking Alarm System with Arduino on Wokwi.com
 
-## Introduction
+# Aufbau eines Parkwarnsystems mit Arduino auf Wokwi.com
 
-In this step-by-step tutorial, we'll guide you through building a parking alarm system using Arduino, entirely online using the [Wokwi Arduino Simulator](https://wokwi.com/). We'll start by creating a simple LED circuit, then add a buzzer, and finally integrate an ultrasonic sensor to complete the parking alarm system. This approach allows you to test each component individually before combining them, ensuring a solid understanding of how each part works.
+## Einführung
 
----
-
-## Prerequisites
-
-- **Internet Access**: We'll be using an online simulator.
-- **Web Browser**: Chrome, Firefox, or any modern browser.
-- **Basic Arduino Knowledge**: Understanding of basic Arduino programming is helpful but not necessary.
+In diesem Schritt-für-Schritt-Tutorial zeigen wir dir, wie du online mit dem [Wokwi Arduino Simulator](https://wokwi.com/) ein Parkwarnsystem mit Arduino aufbaust. Wir beginnen mit einer einfachen LED-Schaltung, fügen dann einen Summer (Buzzer) hinzu und integrieren schließlich einen Ultraschallsensor, um das Parkwarnsystem zu vervollständigen. Mit diesem Ansatz kannst du jede Komponente einzeln testen, bevor du sie kombinierst, und somit sicherstellen, dass du ein gutes Verständnis für jede einzelne Komponente entwickelst.
 
 ---
 
-## Section One: Outputs - LED and Buzzer
+## Voraussetzungen
 
-### Part 1: Creating a New Project on Wokwi.com
+- **Internetverbindung**: Wir nutzen einen Online-Simulator.
+- **Webbrowser**: Chrome, Firefox oder ein anderer moderner Browser.
+- **Grundlegende Arduino-Kenntnisse**: Ein grundlegendes Verständnis der Arduino-Programmierung ist hilfreich, aber nicht zwingend erforderlich.
 
-#### Step 1: Accessing Wokwi
+---
 
-1. Open your web browser and navigate to [Wokwi Arduino Simulator](https://wokwi.com/).
-2. Click on **"Start Creating"** or go directly to [Create New Arduino Uno Project](https://wokwi.com/projects/new/arduino-uno).
+## Abschnitt Eins: Ausgänge – LED und Summer
 
-![Wokwi Homepage](img7.png)  
-*Wokwi Arduino Simulator Homepage*
+### Teil 1: Ein neues Projekt auf Wokwi.com erstellen
 
-### Part 2: Adding an LED and Testing It
+#### Schritt 1: Zugriff auf Wokwi
 
-#### Step 1: Add an LED to the Circuit
+1. Öffne deinen Webbrowser und gehe zur [Wokwi Arduino Simulator](https://wokwi.com/).
+2. Klicke auf **"Start Creating"** oder gehe direkt zu [Neues Arduino Uno Projekt erstellen](https://wokwi.com/projects/new/arduino-uno).
 
-1. **Add an LED**:
-   - In the left sidebar, click on the **"Parts"** tab.
-   - Search for **"LED"**.
-   - Drag and drop the **LED** onto the work area.
+![Wokwi Startseite](img7.png)  
+*Wokwi Arduino Simulator Startseite*
 
-2. **Connect the LED to the Arduino**:
-   - **Anode (+)** (long leg) connects to **Digital Pin 5** on the Arduino.
-   - **Cathode (-)** (short leg) connects to a **220Ω resistor**.
-     - Add a **Resistor** from the parts list and set its value to **220Ω**.
-   - Connect the other end of the resistor to **GND** (ground) on the Arduino.
+### Teil 2: Eine LED hinzufügen und testen
 
-![LED Circuit](img5.png)  
-*LED connected to Arduino Pin 5 with a 220Ω resistor*
+#### Schritt 1: Eine LED in den Schaltkreis einfügen
 
-#### Step 2: Write Code to Blink the LED
+1. **LED hinzufügen**:
+   - Klicke in der linken Seitenleiste auf den Tab **"Parts"**.
+   - Suche nach **"LED"**.
+   - Ziehe die **LED** auf die Arbeitsfläche.
 
-Click on the **"Code"** tab (usually on the left side or bottom of the screen) and enter the following code:
+2. **LED mit dem Arduino verbinden**:
+   - **Anode (+)** (langer Pin) mit **Digital Pin 5** am Arduino verbinden.
+   - **Kathode (-)** (kurzer Pin) mit einem **220Ω Widerstand** verbinden.
+     - Füge aus der Teileliste einen **Resistor** hinzu und setze dessen Wert auf **220Ω**.
+   - Das andere Ende des Widerstands mit **GND** (Masse) des Arduino verbinden.
+
+![LED-Schaltung](img5.png)  
+*LED an Arduino-Pin 5 mit 220Ω Widerstand*
+
+#### Schritt 2: Code zum Blinken der LED schreiben
+
+Klicke auf den **"Code"**-Tab (in der Regel links oder unten am Bildschirm) und gib den folgenden Code ein:
 
 ```arduino
 #define ledPin 5
@@ -56,90 +57,84 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(ledPin, HIGH);  // Turn the LED on
-  delay(1000);                 // Wait for one second
-  digitalWrite(ledPin, LOW);   // Turn the LED off
-  delay(1000);                 // Wait for one second
+  digitalWrite(ledPin, HIGH);  // LED einschalten
+  delay(1000);                 // Eine Sekunde warten
+  digitalWrite(ledPin, LOW);   // LED ausschalten
+  delay(1000);                 // Eine Sekunde warten
 }
 ```
 
-#### Step 3: Test the LED
+#### Schritt 3: LED testen
 
-1. Click on the **"Start Simulation"** button (green play icon at the top).
-2. Observe the LED blinking on and off every second.
-3. If it doesn't work:
-   - Double-check your wiring.
-   - Ensure the LED's anode and cathode are correctly connected.
-   - Verify the resistor value is set to **220Ω**.
+1. Klicke auf den **"Start Simulation"**-Button (grünes Play-Symbol oben).
+2. Beobachte, wie die LED im Sekundentakt an- und ausgeschaltet wird.
+3. Falls es nicht funktioniert:
+   - Überprüfe die Verkabelung.
+   - Stelle sicher, dass Anode und Kathode richtig angeschlossen sind.
+   - Kontrolliere, ob der Widerstandswert auf **220Ω** gesetzt ist.
 
-![Blinking LED Simulation](img8.png)  
-*Simulating the blinking LED on Wokwi*
+![Blinkende LED Simulation](img8.png)  
+*Simulation der blinkenden LED in Wokwi*
 
-### Part 3: Adding a Buzzer and Testing It
+### Teil 3: Einen Summer hinzufügen und testen
 
-#### Step 1: Add a Buzzer to the Circuit
+#### Schritt 1: Einen Summer zum Schaltkreis hinzufügen
 
-1. **Add a Buzzer**:
-   - Search for **"Piezo Buzzer"** in the parts list.
-   - Drag and drop the **Piezo Buzzer** onto the work area.
+1. **Summer hinzufügen**:
+   - Suche nach **"Piezo Buzzer"** in der Teileliste.
+   - Ziehe den **Piezo Summer** auf die Arbeitsfläche.
 
-2. **Connect the Buzzer to the Arduino**:
-   - **Positive (+)** pin of the buzzer connects to **Digital Pin 4** on the Arduino.
-   - **Negative (-)** pin connects to **GND** on the Arduino.
+2. **Summer mit Arduino verbinden**:
+   - **Positive (+)**-Klemme des Summers an **Digital Pin 4** des Arduino anschließen.
+   - **Negative (-)**-Klemme an **GND** des Arduino anschließen.
 
-![LED and Buzzer Circuit](img6.PNG)  
-*Buzzer added to the circuit, connected to Arduino Pin 4*
+![LED- und Summer-Schaltung](img6.png)  
+*Summer zur Schaltung hinzufügen, verbunden mit Arduino-Pin 4*
 
-#### Step 2: Update the Code to Include the Buzzer
+#### Schritt 2: Code um den Summer erweitern
 
-Modify your existing code as follows:
+Modifiziere deinen bestehenden Code wie folgt:
 
 ```arduino
 #define ledPin 5
 #define buzzerPin 4
 
-
 void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
-  tone(8, 262, 250); // Plays 262Hz tone for 0.250 seconds
-
+  tone(8, 262, 250); // Spielt einen 262Hz Ton für 0.250 Sekunden
 }
+
 void loop() {
-  // Turn the LED on
+  // LED einschalten
   digitalWrite(ledPin, HIGH);
-  // Turn the buzzer on
+  // Summer einschalten
   tone(buzzerPin, 300);
   digitalWrite(buzzerPin, HIGH);
-  delay(1000);  // Wait for one second
+  delay(1000);  // Eine Sekunde warten
 
-  // Turn the LED off
+  // LED ausschalten
   digitalWrite(ledPin, LOW);
-  noTone(buzzerPin); 
-  // Turn the buzzer off
+  noTone(buzzerPin);
+  // Summer ausschalten
   
-  delay(1000);  // Wait for one second
-  // tone(8, 262, 250); // Plays 262Hz tone for 0.250 seconds
-
+  delay(1000);  // Eine Sekunde warten
+  // tone(8, 262, 250); // Spielt einen 262Hz Ton für 0.250 Sekunden
 }
 ```
 
-#### Step 3: Test the LED and Buzzer
+#### Schritt 3: LED und Summer testen
 
-1. **Restart the Simulation**:
-   - Click on the **"Restart Simulation"** button (circular arrow icon).
+1. **Simulation neu starten**:
+   - Klicke auf den **"Restart Simulation"**-Button (Symbol mit kreisförmigem Pfeil).
 
-2. **Observe the Outputs**:
-   - The LED should blink on and off every second.
-   - The buzzer should beep in sync with the LED.
+2. **Ausgänge beobachten**:
+   - Die LED sollte im Sekundentakt ein- und ausgeschaltet werden.
+   - Der Summer sollte im gleichen Takt ein- und ausschalten.
 
-3. **Troubleshooting**:
-   - If you don't hear the buzzer:
-     - Ensure your computer's sound is on.
-     - Check the buzzer connections.
+3. **Fehlersuche**:
+   - Falls du den Summer nicht hörst:
+     - Stelle sicher, dass der Ton deines Computers aktiviert ist.
+     - Überprüfe die Verkabelung des Summers.
 
-![LED and Buzzer Simulation](img9.png)  
-*Simulating the LED and buzzer working together*
-
----
-
+![LED- und Summer-Simulation](img9.png)  
