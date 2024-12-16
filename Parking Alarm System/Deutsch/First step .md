@@ -138,7 +138,7 @@ void loop() {
      - Ensure your computer's sound is on.
      - Check the buzzer connections.
 
-![LED and Buzzer Simulation](img9.PNG)  
+![LED and Buzzer Simulation](img9.png)  
 *Simulating the LED and buzzer working together*
 
 ---
