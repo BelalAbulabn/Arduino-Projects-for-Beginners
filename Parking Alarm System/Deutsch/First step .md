@@ -23,7 +23,7 @@ In this step-by-step tutorial, we'll guide you through building a parking alarm 
 1. Open your web browser and navigate to [Wokwi Arduino Simulator](https://wokwi.com/).
 2. Click on **"Start Creating"** or go directly to [Create New Arduino Uno Project](https://wokwi.com/projects/new/arduino-uno).
 
-![Wokwi Homepage](img7.PNG)  
+![Wokwi Homepage](img7.png)  
 *Wokwi Arduino Simulator Homepage*
 
 ### Part 2: Adding an LED and Testing It
@@ -41,7 +41,7 @@ In this step-by-step tutorial, we'll guide you through building a parking alarm 
      - Add a **Resistor** from the parts list and set its value to **220Ω**.
    - Connect the other end of the resistor to **GND** (ground) on the Arduino.
 
-![LED Circuit](img5.PNG)  
+![LED Circuit](img5.png)  
 *LED connected to Arduino Pin 5 with a 220Ω resistor*
 
 #### Step 2: Write Code to Blink the LED
@@ -72,7 +72,7 @@ void loop() {
    - Ensure the LED's anode and cathode are correctly connected.
    - Verify the resistor value is set to **220Ω**.
 
-![Blinking LED Simulation](img8.PNG)  
+![Blinking LED Simulation](img8.png)  
 *Simulating the blinking LED on Wokwi*
 
 ### Part 3: Adding a Buzzer and Testing It
@@ -138,7 +138,7 @@ void loop() {
      - Ensure your computer's sound is on.
      - Check the buzzer connections.
 
-![LED and Buzzer Simulation](img9.PNG)  
+![LED and Buzzer Simulation](img9.png)  
 *Simulating the LED and buzzer working together*
 
 ---
